@@ -15,7 +15,6 @@ public class ECGModel implements XYSeries {
 
     private final Number[] data;
     private final long delayMs;
-    //private final int blipInteral;
     private final Thread thread;
     private boolean keepRunning;
     private int latestIndex;
@@ -36,9 +35,6 @@ public class ECGModel implements XYSeries {
         // translate hz into delay (ms):
         delayMs = 1000 / updateFreqHz;
 
-        // add 7 "blips" into the signal:
-        //blipInteral = size / 7;
-
         thread = new Thread(new Runnable() {
             @Override
             public void run() {
@@ -47,17 +43,6 @@ public class ECGModel implements XYSeries {
                         if (latestIndex >= data.length) {
                             latestIndex = 0;
                         }
-
-                        /*
-                        // generate some random data:
-                        if (latestIndex % blipInteral == 0) {
-                            // insert a "blip" to simulate a heartbeat:
-                            data[latestIndex] = (Math.random() * 10) + 3;
-                        } else {
-                            // insert a random sample:
-                            data[latestIndex] = Math.random() * 2;
-                        }
-                        */
 
                         data[latestIndex] = MainActivity.sendData();
 
