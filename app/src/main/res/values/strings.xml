@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">ElectroOG</string>
+    <string name="history">Blinking History</string>
+    <string name="blink">You blinked</string>
+    <string name="dash">--</string>
+    <string name="times">times.</string>
+    <string name="button">Increment</string>
+</resources>
